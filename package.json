@@ -1,0 +1,32 @@
+{
+  "name": "heigo",
+  "version": "1.0.2",
+  "description": "",
+  "main": "src/nodeIndex.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:browser": "gulp dev:browser",
+    "dev:node": "gulp dev:node",
+    "start": "npm run dev:browser",
+    "build": "gulp build",
+    "docs": "vuepress dev docs",
+    "build:docs": "vuepress build docs"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/helpers": "^7.2.0",
+    "@babel/preset-env": "^7.2.3",
+    "babel-preset-env": "^1.7.0",
+    "chokidar": "^2.0.4",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sequence": "^1.0.0",
+    "gulp-uglify": "^3.0.1",
+    "gulp-webserver": "^0.9.1",
+    "vuepress": "^0.14.8"
+  }
+}
