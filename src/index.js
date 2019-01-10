@@ -51,13 +51,13 @@
             // console.log(this.el)
     }
     //实例方法
-    heiGo.prototype = Object.assign(d_selector, d_event, d_phoneEvent, d_html, d_effect, d_css, d_each, d_ajax, d_plugin)
+    heiGo.prototype = Object.assign(d_selector, d_event, d_phoneEvent, d_html, d_effect, d_css, d_each, d_plugin)
 
     function $(str) {
         return new heiGo(str)
     }
     //静态方法挂载
-    Object.assign($, pluginMethods, arrayMethods, objectMethods, stringMethods, bomMethods, otherMethods, stringMethods)
+    Object.assign($, d_ajax,pluginMethods, arrayMethods, objectMethods, stringMethods, bomMethods, otherMethods, stringMethods)
    
     return $
 })

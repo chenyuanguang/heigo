@@ -1,16 +1,68 @@
 "use strict";
 
-function _typeof(obj) { if (typeof Symbol === "function" && _typeof(Symbol.iterator) === "symbol") { _typeof = function (_typeof2) { function _typeof(_x) { return _typeof2.apply(this, arguments); } _typeof.toString = function () { return _typeof2.toString(); }; return _typeof; }(function (obj) { return typeof obj === "undefined" ? "undefined" : _typeof(obj); }); } else { _typeof = function (_typeof3) { function _typeof(_x2) { return _typeof3.apply(this, arguments); } _typeof.toString = function () { return _typeof3.toString(); }; return _typeof; }(function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof(obj); }); } return _typeof(obj); }
+function _typeof(obj) {
+  if (typeof Symbol === "function" && _typeof(Symbol.iterator) === "symbol") {
+    _typeof = function (_typeof2) {
+      function _typeof(_x) {
+        return _typeof2.apply(this, arguments);
+      }
+      _typeof.toString = function () {
+        return _typeof2.toString();
+      };
+      return _typeof;
+    }(function (obj) {
+      return typeof obj === "undefined" ? "undefined" : _typeof(obj);
+    });
+  } else {
+    _typeof = function (_typeof3) {
+      function _typeof(_x2) {
+        return _typeof3.apply(this, arguments);
+      }
+      _typeof.toString = function () {
+        return _typeof3.toString();
+      };
+      return _typeof;
+    }(function (obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof(obj);
+    });
+  }
+  return _typeof(obj);
+}
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
+}
 
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance");
+}
 
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+function _iterableToArray(iter) {
+  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+}
 
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
+      arr2[i] = arr[i];
+    }
+    return arr2;
+  }
+}
 
 (function e(t, n, r) {
   function s(o, u) {
@@ -47,21 +99,21 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       //适配rem
       getFontSize: function getFontSize(psdW) {
         var doc = document,
-            win = window;
+          win = window;
 
         var docEl = doc.documentElement,
-            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-            recalc = function recalc() {
-          var clientWidth = docEl.clientWidth;
-          if (!clientWidth) return;
+          resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+          recalc = function recalc() {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
 
-          if (clientWidth > psdW) {
-            clientWidth = psdW;
-          } //设置根元素font-size大小
+            if (clientWidth > psdW) {
+              clientWidth = psdW;
+            } //设置根元素font-size大小
 
 
-          docEl.style.fontSize = 100 * (clientWidth / psdW) + 'px';
-        }; //屏幕大小改变，或者横竖屏切换时，触发函数
+            docEl.style.fontSize = 100 * (clientWidth / psdW) + 'px';
+          }; //屏幕大小改变，或者横竖屏切换时，触发函数
 
 
         win.addEventListener(resizeEvt, recalc, false); //文档加载完成时，触发函数
@@ -114,54 +166,61 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       }
     };
   }, {}],
-  2: [function (require, module, exports) {// module.exports = {
-    //     ajax(option) {
-    //         var type=option.type,
-    //             url=option.url,
-    //             data=option.data
-    //         return new Promise((resolve, reject) => {
-    //             let xhr = new XMLHttpRequest()
-    //             if (type == "get") {
-    //                 if (data) {
-    //                     let dataArr = Object.entries(data)
-    //                     dataArr.forEach((i, index) => {
-    //                         if (index == 0) {
-    //                             url += "?" + i[0] + "=" + i[1]
-    //                         } else {
-    //                             url += "&" + i[0] + "=" + i[1]
-    //                         }
-    //                     })
-    //                 }
-    //                 xhr.open(type, url)
-    //                 xhr.send()
-    //             } else {
-    //                 xhr.open(type, url)
-    //                 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-    //                 let str = ""
-    //                 if (data) {
-    //                     let dataArr = Object.entries(data)
-    //                     dataArr.forEach((i, index) => {
-    //                         if (index == 0) {
-    //                             str += i[0] + "=" + i[1]
-    //                         } else {
-    //                             str += "&" + i[0] + "=" + i[1]
-    //                         }
-    //                     })
-    //                 }
-    //                 xhr.send(str)
-    //             }
-    //             xhr.onreadystatechange = function() {
-    //                 if (xhr.readyState == 4) {
-    //                     if (xhr.status == 200) {
-    //                         resolve(JSON.parse(xhr.responseText))
-    //                     } else {
-    //                         reject("err")
-    //                     }
-    //                 }
-    //             }
-    //         })
-    //     }
-    // }
+  2: [function (require, module, exports) {
+    module.exports = {
+      ajax: function ajax(option) {
+        var type = option.type,
+          url = option.url,
+          data = option.data;
+        return new Promise(function (resolve, reject) {
+          var xhr = new XMLHttpRequest();
+
+          if (type == "get") {
+            if (data) {
+              var dataArr = Object.entries(data);
+              dataArr.forEach(function (i, index) {
+                if (index == 0) {
+                  url += "?" + i[0] + "=" + i[1];
+                } else {
+                  url += "&" + i[0] + "=" + i[1];
+                }
+              });
+            }
+
+            xhr.open(type, url);
+            xhr.send();
+          } else {
+            xhr.open(type, url);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            var str = "";
+
+            if (data) {
+              var _dataArr = Object.entries(data);
+
+              _dataArr.forEach(function (i, index) {
+                if (index == 0) {
+                  str += i[0] + "=" + i[1];
+                } else {
+                  str += "&" + i[0] + "=" + i[1];
+                }
+              });
+            }
+
+            xhr.send(str);
+          }
+
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+              if (xhr.status == 200) {
+                resolve(JSON.parse(xhr.responseText));
+              } else {
+                reject("err");
+              }
+            }
+          };
+        });
+      }
+    };
   }, {}],
   3: [function (require, module, exports) {
     module.exports = {
@@ -241,8 +300,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         } else {
           var offset = function offset(curEle) {
             var totalLeft = null,
-                totalTop = null,
-                par = curEle.offsetParent; //首先加自己本身的左偏移和上偏移
+              totalTop = null,
+              par = curEle.offsetParent; //首先加自己本身的左偏移和上偏移
 
             totalLeft += curEle.offsetLeft;
             totalTop += curEle.offsetTop; //只要没有找到body，我们就把父级参照物的边框和偏移也进行累加
@@ -272,9 +331,9 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       offsetParent: function offsetParent() {
         function offsetParent(curEle) {
           var totalLeft = null,
-              totalTop = null,
-              par = curEle.parentNode,
-              postionState = window.getComputedStyle(par, null).getPropertyValue("position");
+            totalTop = null,
+            par = curEle.parentNode,
+            postionState = window.getComputedStyle(par, null).getPropertyValue("position");
 
           if (!par || par.tagName == "HTML") {
             return null;
@@ -1200,8 +1259,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     module.exports = {
       tap: function tap(cb) {
         var start = void 0,
-            end = void 0,
-            state = true;
+          end = void 0,
+          state = true;
         this.el.forEach(function (element) {
           element.addEventListener("touchstart", handle);
           element.addEventListener("touchmove", handle);
@@ -1267,9 +1326,9 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       },
       move: function move(type, cb) {
         var startX = void 0,
-            endX = void 0,
-            startY = void 0,
-            endY = void 0;
+          endX = void 0,
+          startY = void 0,
+          endY = void 0;
         this.el.forEach(function (element) {
           element.addEventListener("touchstart", handle);
           element.addEventListener("touchend", handle);
@@ -1401,7 +1460,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       //}
       loadImg: function loadImg(num, errorUrl) {
         var _num = num || 0,
-            _errorUrl = errorUrl || null;
+          _errorUrl = errorUrl || null;
 
         var oImgLoad = this.el;
 
@@ -1430,8 +1489,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         var t_start;
         return function () {
           var context = this,
-              args = arguments,
-              t_cur = +new Date(); //先清理上一次的调用触发（上一次调用触发事件不执行）
+            args = arguments,
+            t_cur = +new Date(); //先清理上一次的调用触发（上一次调用触发事件不执行）
 
           clearTimeout(timer); //如果不存触发时间，那么当前的时间就是触发时间
 
@@ -1445,10 +1504,10 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             t_start = t_cur;
           } //否则延迟执行
           else {
-              timer = setTimeout(function () {
-                fn.apply(context, args);
-              }, delay);
-            }
+            timer = setTimeout(function () {
+              fn.apply(context, args);
+            }, delay);
+          }
         };
       }
     };
@@ -1833,7 +1892,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         var newArr = [];
 
         var _keys = keys.split(','),
-            newArrOne = {};
+          newArrOne = {};
 
         for (var i = 0, len = arr.length; i < len; i++) {
           newArrOne = {};
@@ -1877,7 +1936,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       //数组扁平化
       steamroller: function steamroller(arr) {
         var newArr = [],
-            _this = this;
+          _this = this;
 
         for (var i = 0; i < arr.length; i++) {
           if (Array.isArray(arr[i])) {
@@ -1913,7 +1972,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       //对象的扁平化处理
       steamObject: function steamObject(obj) {
         var newObj = {},
-            _this = this;
+          _this = this;
 
         for (var key in obj) {
           if (obj.hasOwnProperty(key)) {
@@ -2057,8 +2116,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       //字符替换*
       replaceStr: function replaceStr(str, regArr, type, ARepText) {
         var regtext = '',
-            Reg = null,
-            replaceText = ARepText || '*'; //replaceStr('18819322663',[3,5,3],0)
+          Reg = null,
+          replaceText = ARepText || '*'; //replaceStr('18819322663',[3,5,3],0)
         //result：188*****663
 
         if (regArr.length === 3 && type === 0) {
@@ -2069,26 +2128,26 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         } //replaceStr('asdasdasdaa',[3,5,3],1)
         //result：***asdas***
         else if (regArr.length === 3 && type === 1) {
-            regtext = '\\w{' + regArr[0] + '}(\\w{' + regArr[1] + '})\\w{' + regArr[2] + '}';
-            Reg = new RegExp(regtext);
-            var replaceCount1 = this.repeatStr(replaceText, regArr[0]);
-            var replaceCount2 = this.repeatStr(replaceText, regArr[2]);
-            return str.replace(Reg, replaceCount1 + '$1' + replaceCount2);
-          } //replaceStr('1asd88465asdwqe3',[5],0)
-          //result：*****8465asdwqe3
-          else if (regArr.length === 1 && type === 0) {
-              regtext = '(^\\w{' + regArr[0] + '})';
-              Reg = new RegExp(regtext);
-              var replaceCount = this.repeatStr(replaceText, regArr[0]);
-              return str.replace(Reg, replaceCount);
-            } //replaceStr('1asd88465asdwqe3',[5],1,'+')
-            //result："1asd88465as+++++"
-            else if (regArr.length === 1 && type === 1) {
-                regtext = '(\\w{' + regArr[0] + '}$)';
-                Reg = new RegExp(regtext);
-                var replaceCount = this.repeatStr(replaceText, regArr[0]);
-                return str.replace(Reg, replaceCount);
-              }
+          regtext = '\\w{' + regArr[0] + '}(\\w{' + regArr[1] + '})\\w{' + regArr[2] + '}';
+          Reg = new RegExp(regtext);
+          var replaceCount1 = this.repeatStr(replaceText, regArr[0]);
+          var replaceCount2 = this.repeatStr(replaceText, regArr[2]);
+          return str.replace(Reg, replaceCount1 + '$1' + replaceCount2);
+        } //replaceStr('1asd88465asdwqe3',[5],0)
+        //result：*****8465asdwqe3
+        else if (regArr.length === 1 && type === 0) {
+          regtext = '(^\\w{' + regArr[0] + '})';
+          Reg = new RegExp(regtext);
+          var replaceCount = this.repeatStr(replaceText, regArr[0]);
+          return str.replace(Reg, replaceCount);
+        } //replaceStr('1asd88465asdwqe3',[5],1,'+')
+        //result："1asd88465as+++++"
+        else if (regArr.length === 1 && type === 1) {
+          regtext = '(\\w{' + regArr[0] + '}$)';
+          Reg = new RegExp(regtext);
+          var replaceCount = this.repeatStr(replaceText, regArr[0]);
+          return str.replace(Reg, replaceCount);
+        }
       },
       checkType: function checkType(str, type) {
         switch (type) {
@@ -2156,17 +2215,17 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       },
       filterStr: function filterStr(str, type, restr, spstr) {
         var typeArr = type.split(','),
-            _str = str;
+          _str = str;
 
         for (var i = 0, len = typeArr.length; i < len; i++) {
           //是否是过滤特殊符号
           if (typeArr[i] === 'special') {
             var pattern,
-                regText = '$()[]{}?\|^*+./\"\'+'; //是否有哪些特殊符号需要保留
+              regText = '$()[]{}?\|^*+./\"\'+'; //是否有哪些特殊符号需要保留
 
             if (2) {
               var _spstr = spstr.split(""),
-                  _regText = "[^0-9A-Za-z\\s";
+                _regText = "[^0-9A-Za-z\\s";
 
               for (var j = 0, len1 = _spstr.length; j < len1; j++) {
                 if (regText.indexOf(_spstr[j]) === -1) {
@@ -2220,7 +2279,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       },
       formatText: function formatText(str, size, delimiter) {
         var _size = size || 3,
-            _delimiter = delimiter || ',';
+          _delimiter = delimiter || ',';
 
         var regText = '\\B(?=(\\w{' + _size + '})+(?!\\w))';
         var reg = new RegExp(regText, 'g');
@@ -2228,8 +2287,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       },
       longestWord: function longestWord(str, splitType) {
         var _splitType = splitType || /\s+/g,
-            _max = 0,
-            result = null;
+          _max = 0,
+          result = null;
 
         var strArr = str.split(_splitType);
         strArr.forEach(function (item) {
@@ -2244,8 +2303,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         var _splitType = splitType || /\s+/g;
 
         var strArr = str.split(_splitType),
-            result = "",
-            _this = this;
+          result = "",
+          _this = this;
 
         strArr.forEach(function (item) {
           result += _this.changeCase(item, 1) + ' ';
@@ -2293,10 +2352,10 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       },
       findKey: function findKey(str, key, el) {
         var arr = null,
-            regStr = null,
-            content = null,
-            Reg = null,
-            _el = el || 'span';
+          regStr = null,
+          content = null,
+          Reg = null,
+          _el = el || 'span';
 
         arr = key.split(/\s+/); //alert(regStr); //    如：(前端|过来)
 
@@ -2312,7 +2371,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       table: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'],
       UTF16ToUTF8: function UTF16ToUTF8(str) {
         var res = [],
-            len = str.length;
+          len = str.length;
 
         for (var i = 0; i < len; i++) {
           var code = str.charCodeAt(i);
@@ -2339,22 +2398,22 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
             var byte3 = 0x80 | code & 0x3F;
             res.push(String.fromCharCode(byte1), String.fromCharCode(byte2), String.fromCharCode(byte3));
-          } else if (code >= 0x00010000 && code <= 0x001FFFFF) {// 四字节
+          } else if (code >= 0x00010000 && code <= 0x001FFFFF) { // 四字节
             // U+00010000 – U+001FFFFF  11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
-          } else if (code >= 0x00200000 && code <= 0x03FFFFFF) {// 五字节
+          } else if (code >= 0x00200000 && code <= 0x03FFFFFF) { // 五字节
             // U+00200000 – U+03FFFFFF  111110xx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
           } else
-            /** if (code >= 0x04000000 && code <= 0x7FFFFFFF)*/
-            {// 六字节
-              // U+04000000 – U+7FFFFFFF  1111110x 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
-            }
+          /** if (code >= 0x04000000 && code <= 0x7FFFFFFF)*/
+          { // 六字节
+            // U+04000000 – U+7FFFFFFF  1111110x 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
+          }
         }
 
         return res.join('');
       },
       UTF8ToUTF16: function UTF8ToUTF16(str) {
         var res = [],
-            len = str.length;
+          len = str.length;
         var i = 0;
 
         for (var i = 0; i < len; i++) {
@@ -2381,15 +2440,15 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             var byte2 = (code2 & 0x03) << 6 | code3 & 0x3F;
             utf16 = (byte1 & 0x00FF) << 8 | byte2;
             res.push(String.fromCharCode(utf16));
-          } else if ((code >> 3 & 0xFF) == 0x1E) {// 四字节
+          } else if ((code >> 3 & 0xFF) == 0x1E) { // 四字节
             // 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
-          } else if ((code >> 2 & 0xFF) == 0x3E) {// 五字节
+          } else if ((code >> 2 & 0xFF) == 0x3E) { // 五字节
             // 111110xx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
           } else
-            /** if (((code >> 1) & 0xFF) == 0x7E)*/
-            {// 六字节
-              // 1111110x 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
-            }
+          /** if (((code >> 1) & 0xFF) == 0x7E)*/
+          { // 六字节
+            // 1111110x 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
+          }
         }
 
         return res.join('');
@@ -2476,9 +2535,9 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         var t = endDate.getTime() - startDate.getTime(); //时间差的毫秒数
 
         var d = 0,
-            h = 0,
-            m = 0,
-            s = 0;
+          h = 0,
+          m = 0,
+          s = 0;
 
         if (t >= 0) {
           d = Math.floor(t / 1000 / 3600 / 24);
@@ -2556,12 +2615,12 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         } //randomNumber(10)
         //返回0-10的随机整数，包括0，10
         else if (arguments.length === 1) {
-            return Math.round(Math.random() * n1);
-          } //randomNumber()
-          //返回0-255的随机整数，包括0，255
-          else {
-              return Math.round(Math.random() * 255);
-            }
+          return Math.round(Math.random() * n1);
+        } //randomNumber()
+        //返回0-255的随机整数，包括0，255
+        else {
+          return Math.round(Math.random() * 255);
+        }
       },
       //获取url参数
       setUrlPrmt: function setUrlPrmt(obj) {
@@ -2579,8 +2638,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         url = url ? url : "";
 
         var _pa = url.substring(url.indexOf('?') + 1),
-            _arrS = _pa.split('&'),
-            _rs = {};
+          _arrS = _pa.split('&'),
+          _rs = {};
 
         for (var i = 0, _len = _arrS.length; i < _len; i++) {
           var pos = _arrS[i].indexOf('=');
@@ -2601,7 +2660,10 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       upDigit: function upDigit(n) {
         var fraction = ['角', '分', '厘'];
         var digit = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖'];
-        var unit = [['元', '万', '亿'], ['', '拾', '佰', '仟']];
+        var unit = [
+          ['元', '万', '亿'],
+          ['', '拾', '佰', '仟']
+        ];
         var head = n < 0 ? '欠人民币' : '人民币';
         n = Math.abs(n);
         var s = '';
@@ -2690,14 +2752,14 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       } //实例方法
 
 
-      heiGo.prototype = Object.assign(d_selector, d_event, d_phoneEvent, d_html, d_effect, d_css, d_each, d_ajax, d_plugin);
+      heiGo.prototype = Object.assign(d_selector, d_event, d_phoneEvent, d_html, d_effect, d_css, d_each, d_plugin);
 
       function $(str) {
         return new heiGo(str);
       } //静态方法挂载
 
 
-      Object.assign($, pluginMethods, arrayMethods, objectMethods, stringMethods, bomMethods, otherMethods, stringMethods);
+      Object.assign($, d_ajax, pluginMethods, arrayMethods, objectMethods, stringMethods, bomMethods, otherMethods, stringMethods);
       return $;
     });
   }, {

@@ -1,6 +1,6 @@
 // var $=require("../src/nodeIndex")
 // import "babel-polyfill"
-import $ from "../src/nodeIndex.js"
+import $ from "../src/runtime.js"
 
 // console.log($)
 

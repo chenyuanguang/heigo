@@ -1,8 +1,12 @@
 {
   "name": "heigo",
-  "version": "1.0.2",
-  "description": "",
-  "main": "src/nodeIndex.js",
+  "version": "1.1.0",
+  "description": "集成jquery所有的常用方法,封装bom相关的一系列函数 封装常用的移动端事件 集成前端开发过程中常用的插件 针对字符串，数组，对象进行了方法的扩展，在项目开发可以更加专注业务",
+  "Keywords":"集成jquery所有的常用方法,封装bom相关的一系列函数 封装常用的移动端事件 集成前端开发过程中常用的插件 针对字符串，数组，对象进行了方法的扩展，在项目开发可以更加专注业务",
+  "main": "src/runtime.js",
+  "module": "src/runtime.js",
+  "unpkg": "dist/heigo.js",
+  "jsdelivr": "dist/heigo.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:browser": "gulp dev:browser",
@@ -12,6 +16,19 @@
     "docs": "vuepress dev docs",
     "build:docs": "vuepress build docs"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenyuanguang/heigo.git"
+  },
+  "keywords": [
+    "heigo",
+    "jquery",
+    "dom操作"
+  ],
+  "bugs": {
+    "url": "https://github.com/chenyuanguang/heigo/issues"
+  },
+  "homepage": "https://github.com/chenyuanguang/heigo#readme",
   "author": "",
   "license": "ISC",
   "devDependencies": {
